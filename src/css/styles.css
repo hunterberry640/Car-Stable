@@ -979,14 +979,52 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 @media (max-width: 560px) {
   .hero-headline { font-size: clamp(2rem, 9vw, 2.8rem); }
   .hero-sub { font-size: 1rem; }
+
   .diff-row {
     grid-template-columns: 1fr;
-    padding: 8px 0;
+    padding: 0;
   }
-  .diff-row > div { padding: 8px 18px; }
+  .diff-row > div { padding: 10px 18px; }
   .diff-head { display: none; }
-  .diff-label { background: var(--bg-card-2); }
-  .diff-us { border-left: 0; border-top: 2px solid var(--accent); }
+  .diff-label {
+    background: var(--bg-card-2);
+    font-size: 0.85rem;
+    padding: 10px 18px;
+  }
+  .diff-them,
+  .diff-us {
+    border-left: 0;
+    position: relative;
+    padding-left: 18px;
+  }
+  .diff-them::before,
+  .diff-us::before {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+  .diff-them::before {
+    content: 'Dealer';
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+  }
+  .diff-us::before {
+    content: 'Car Stable';
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .diff-us {
+    border-top: 0;
+    background: linear-gradient(90deg, var(--accent-soft), transparent 80%);
+  }
+
   .nav-logo img { height: 44px; }
   .navbar.scrolled .nav-logo img { height: 38px; }
   .why-stats { grid-template-columns: 1fr; }
