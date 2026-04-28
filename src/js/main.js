@@ -44,6 +44,7 @@ if ('IntersectionObserver' in window && revealEls.length) {
 // Hero car carousel — slide left transition
 const heroImages = document.querySelectorAll('.hero-car-img');
 if (heroImages.length > 1) {
+  heroImages.forEach((img) => img.removeAttribute('style'));
   let current = 0;
   setInterval(() => {
     const outgoing = heroImages[current];

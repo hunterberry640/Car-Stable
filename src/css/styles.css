@@ -292,11 +292,13 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 .hero-car-img.hero-car-active {
   opacity: 1;
+  visibility: visible;
   transform: translateX(0);
 }
 
 .hero-car-img.hero-car-exit {
   opacity: 0;
+  visibility: visible;
   transform: translateX(-60px);
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
