@@ -41,6 +41,27 @@ if ('IntersectionObserver' in window && revealEls.length) {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
+// Hero car carousel — slide left transition
+const heroImages = document.querySelectorAll('.hero-car-img');
+if (heroImages.length > 1) {
+  let current = 0;
+  setInterval(() => {
+    const outgoing = heroImages[current];
+    current = (current + 1) % heroImages.length;
+    const incoming = heroImages[current];
+
+    outgoing.classList.remove('hero-car-active');
+    outgoing.classList.add('hero-car-exit');
+
+    incoming.classList.remove('hero-car-exit');
+    incoming.classList.add('hero-car-active');
+
+    outgoing.addEventListener('transitionend', () => {
+      outgoing.classList.remove('hero-car-exit');
+    }, { once: true });
+  }, 5000);
+}
+
 if (leadForm) {
   leadForm.addEventListener('submit', (event) => {
     event.preventDefault();

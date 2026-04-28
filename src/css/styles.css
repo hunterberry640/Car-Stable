@@ -269,13 +269,36 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   margin-right: calc(-1 * clamp(20px, 4vw, 56px));
 }
 
-.hero-shield-img {
+.hero-carousel {
+  position: relative;
   width: 100%;
-  max-width: none;
-  height: auto;
+  aspect-ratio: 1561 / 787;
   max-height: min(92vh, 900px);
+  overflow: hidden;
+}
+
+.hero-car-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: right center;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  will-change: opacity, transform;
+}
+
+.hero-car-img.hero-car-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-car-img.hero-car-exit {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
 .hero-headline {
